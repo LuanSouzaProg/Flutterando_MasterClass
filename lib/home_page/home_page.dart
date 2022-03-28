@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: const [
             CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
+              infoActivity: 'Semana 02 - Componentes do Flutter',
+              nameActivity: 'Componentes do Flutter',
               contActivity: 4,
             ),
             CardActivity(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:masterclass/home_page/home_page2.dart';
+import 'package:masterclass/activities_pages/activities_page.dart';
+import 'package:masterclass/home_page/home_page.dart';
 
 import 'home_page/home_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.black
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const ActivitiesPage(),
     );
   }
 }
