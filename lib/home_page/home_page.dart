@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,118 +9,98 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
+    final items = <Widget>[
+      const Icon(Icons.stars),
+      const Icon(Icons.archive),
+      const Icon(Icons.person),
+    ];
+
     return Scaffold(
-      backgroundColor: const Color(0Xff121517),
-      appBar: AppBar(
+        extendBody: true,
         backgroundColor: const Color(0Xff121517),
-        toolbarHeight: 80,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "Activities",
-              style: TextStyle(fontSize: 18),
-            ),
-            Text(
-              "Flutterando MasterClass",
-              style: TextStyle(fontSize: 16),
+        appBar: AppBar(
+          shadowColor: Colors.transparent,
+          backgroundColor: const Color(0XffEDF4F8),
+          toolbarHeight: 80,
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "Atividades",
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                "Flutterando MasterClass",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Image.asset("assets/logos/logo_flutterando2.png", width: 40),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.dark_mode,
+                size: 30,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
-        leading: const Icon(
-          Icons.home,
-          size: 50,
+        body: SingleChildScrollView(
+          child: Column(
+            children: const [
+              CardActivity(
+                infoActivity: 'Semana 02 - Componentes do Flutter',
+                nameActivity: 'Componentes do Flutter',
+                contActivity: 4,
+              ),
+              CardActivity(
+                infoActivity: 'Primeira atividade da MasterClass',
+                nameActivity: 'Atividade 01',
+                contActivity: 4,
+              ),
+              CardActivity(
+                infoActivity: 'Primeira atividade da MasterClass',
+                nameActivity: 'Atividade 01',
+                contActivity: 4,
+              ),
+              CardActivity(
+                infoActivity: 'Primeira atividade da MasterClass',
+                nameActivity: 'Atividade 01',
+                contActivity: 4,
+              ),
+              CardActivity(
+                infoActivity: 'Primeira atividade da MasterClass',
+                nameActivity: 'Atividade 01',
+                contActivity: 4,
+              ),
+              CardActivity(
+                infoActivity: 'Primeira atividade da MasterClass',
+                nameActivity: 'Atividade 01',
+                contActivity: 4,
+              ),
+              SizedBox(height: 80),
+            ],
+          ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.dark_mode,
-              size: 30,
-            ),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            CardActivity(
-              infoActivity: 'Semana 02 - Componentes do Flutter',
-              nameActivity: 'Componentes do Flutter',
-              contActivity: 4,
-            ),
-            CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
-              contActivity: 4,
-            ),
-            CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
-              contActivity: 4,
-            ),
-            CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
-              contActivity: 4,
-            ),
-            CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
-              contActivity: 4,
-            ),
-            CardActivity(
-              infoActivity: 'Primeira atividade da MasterClass',
-              nameActivity: 'Atividade 01',
-              contActivity: 4,
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0Xff121517),
-        fixedColor: Colors.white,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.location_history,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.location_history,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.location_history,
-              color: Colors.white,
-              size: 30,
-            ),
-            label: "Home",
-          ),
-        ],
-      ),
-    );
+        bottomNavigationBar: CurvedNavigationBar(
+          color: const Color(0XffEDF4F8),
+          backgroundColor: Colors.transparent,
+          height: 60,
+          index: index,
+          items: items,
+        ));
   }
 }
 
@@ -141,10 +122,10 @@ class CardActivity extends StatelessWidget {
         padding: const EdgeInsets.only(top: 15),
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0Xff172026),
+            color: const Color(0Xff51565A),
             border: Border.all(
               width: 2,
-              color: const Color(0Xff172026),
+              color: const Color(0Xff51565A),
             ),
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
@@ -208,13 +189,11 @@ class CardActivity extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      children: const [
-                        Icon(
-                          Icons.location_history,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 8),
-                        Text(
+                      children: [
+                        Image.asset("assets/icons/github.png",
+                            width: 20, color: Colors.white),
+                        const SizedBox(width: 8),
+                        const Text(
                           "Access source code",
                           style: TextStyle(fontSize: 12, color: Colors.white),
                         ),
