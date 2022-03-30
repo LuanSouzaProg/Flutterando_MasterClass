@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:masterclass/theme_mode/theme_mode.dart';
+import 'package:masterclass/widgets/change_theme_button_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,23 +23,18 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
         extendBody: true,
-        backgroundColor: const Color(0Xff121517),
         appBar: AppBar(
-          shadowColor: Colors.transparent,
-          backgroundColor: const Color(0XffEDF4F8),
           toolbarHeight: 80,
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               Text(
                 "Atividades",
-                style: TextStyle(color: Colors.black),
               ),
               Text(
                 "Flutterando MasterClass",
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.black,
                 ),
               ),
             ],
@@ -46,15 +43,8 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: 10),
             child: Image.asset("assets/logos/logo_flutterando2.png", width: 40),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.dark_mode,
-                size: 30,
-                color: Colors.black,
-              ),
-            ),
+          actions: const [
+            ChangeThemeButtonWidget(),
           ],
         ),
         body: SingleChildScrollView(
@@ -95,8 +85,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         bottomNavigationBar: CurvedNavigationBar(
-          color: const Color(0XffEDF4F8),
-          backgroundColor: Colors.transparent,
           height: 60,
           index: index,
           items: items,
@@ -122,11 +110,11 @@ class CardActivity extends StatelessWidget {
         padding: const EdgeInsets.only(top: 15),
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0Xff51565A),
             border: Border.all(
               width: 2,
               color: const Color(0Xff51565A),
             ),
+            color: Theme.of(context).primaryColor,
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
@@ -150,7 +138,6 @@ class CardActivity extends StatelessWidget {
                           style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -161,15 +148,12 @@ class CardActivity extends StatelessWidget {
                           "Exercises:",
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Text(
                           contActivity.toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ),
+                          style: const TextStyle(),
                         ),
                       ],
                     ),
@@ -181,7 +165,7 @@ class CardActivity extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       infoActivity,
-                      style: const TextStyle(fontSize: 12, color: Colors.white),
+                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                 ),
@@ -190,12 +174,13 @@ class CardActivity extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset("assets/icons/github.png",
-                            width: 20, color: Colors.white),
+                        Image.asset("assets/icons/github.png", width: 20),
                         const SizedBox(width: 8),
                         const Text(
                           "Access source code",
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),

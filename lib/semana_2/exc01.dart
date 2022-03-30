@@ -6,7 +6,6 @@ class Exc01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF151414),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,7 +18,6 @@ class Exc01 extends StatelessWidget {
             const Text(
               "Get your Money",
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
@@ -27,7 +25,6 @@ class Exc01 extends StatelessWidget {
             const Text(
               "Under Control",
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
@@ -36,14 +33,12 @@ class Exc01 extends StatelessWidget {
             const Text(
               "Manage you expense",
               style: TextStyle(
-                color: Colors.grey,
                 fontSize: 20,
               ),
             ),
             const Text(
               "Seamlessly.",
               style: TextStyle(
-                color: Colors.grey,
                 fontSize: 20,
               ),
             ),
@@ -52,11 +47,6 @@ class Exc01 extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               height: 50,
               child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color(0Xff055AA3),
-                  ),
-                ),
                 onPressed: () {},
                 child: const Text(
                   "Sing Up With Email ID",
@@ -69,11 +59,6 @@ class Exc01 extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               height: 50,
               child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color(0XffEDF4F8),
-                  ),
-                ),
                 onPressed: () {},
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,7 +86,6 @@ class Exc01 extends StatelessWidget {
                     text: "Sing in",
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.white,
                       decoration: TextDecoration.underline,
                     ),
                   ),
