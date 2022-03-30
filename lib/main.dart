@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:masterclass/activities_pages/activities_page.dart';
-import 'package:masterclass/home_page/home_page.dart';
-import 'package:masterclass/semana_2/exc01.dart';
 import 'package:masterclass/semana_2/exc02.dart';
 
 

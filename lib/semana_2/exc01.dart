@@ -11,11 +11,11 @@ class Exc01 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.home,
-              color: Colors.white,
-              size: 50,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.3,
+              child: Image.asset("assets/logos/logo_seam.png"),
             ),
+            const SizedBox(height: 20),
             const Text(
               "Get your Money",
               style: TextStyle(
@@ -78,15 +78,12 @@ class Exc01 extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 5),
-                      child: Icon(
-                        Icons.alternate_email,
-                        color: Colors.blue,
-                      ),
+                      padding: const EdgeInsets.only(right: 5),
+                      child: Image.asset("assets/icons/google.png", width: 25,),
                     ),
-                    Text(
+                    const Text(
                       "Sing Up With Google",
                       style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
