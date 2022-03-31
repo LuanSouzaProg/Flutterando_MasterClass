@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:masterclass/home_page/home_page.dart';
+import 'package:masterclass/pages/home_page/home_page.dart';
+
 import 'package:masterclass/theme_mode/theme_mode.dart';
 import 'package:provider/provider.dart';
 

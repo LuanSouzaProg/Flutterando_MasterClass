@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:masterclass/theme_mode/theme_mode.dart';
 import 'package:masterclass/widgets/change_theme_button_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,17 +23,22 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         extendBody: true,
         appBar: AppBar(
+          shadowColor: Colors.transparent,
           toolbarHeight: 80,
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 "Atividades",
+                style: TextStyle(
+                  color: Theme.of(context).textSelectionTheme.cursorColor,
+                ),
               ),
               Text(
                 "Flutterando MasterClass",
                 style: TextStyle(
                   fontSize: 18,
+                  color: Theme.of(context).textSelectionTheme.cursorColor,
                 ),
               ),
             ],
@@ -80,12 +84,13 @@ class _HomePageState extends State<HomePage> {
                 nameActivity: 'Atividade 01',
                 contActivity: 4,
               ),
-              SizedBox(height: 80),
+              SizedBox(height: 50),
             ],
           ),
         ),
         bottomNavigationBar: CurvedNavigationBar(
-          height: 60,
+          backgroundColor: Colors.transparent,
+          height: 45,
           index: index,
           items: items,
         ));
@@ -114,7 +119,7 @@ class CardActivity extends StatelessWidget {
               width: 2,
               color: const Color(0Xff51565A),
             ),
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).cardColor,
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
@@ -199,7 +204,7 @@ class CardActivity extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
