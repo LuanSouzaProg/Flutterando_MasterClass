@@ -21,92 +21,85 @@ class _HomePageState extends State<HomePage> {
     ];
 
     return Scaffold(
-        extendBody: true,
-        appBar: AppBar(
-          shadowColor: Colors.transparent,
-          toolbarHeight: 80,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Atividades",
-                style: TextStyle(
-                  color: Theme.of(context).textSelectionTheme.cursorColor,
-                ),
+      extendBody: true,
+      appBar: AppBar(
+        shadowColor: Colors.transparent,
+        toolbarHeight: 80,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Atividades",
+              style: TextStyle(
+                color: Theme.of(context).bottomAppBarColor,
               ),
-              Text(
-                "Flutterando MasterClass",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Theme.of(context).textSelectionTheme.cursorColor,
-                ),
+            ),
+            Text(
+              "Flutterando MasterClass",
+              style: TextStyle(
+                fontSize: 18,
+                color: Theme.of(context).bottomAppBarColor,
               ),
-            ],
-          ),
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Image.asset("assets/logos/logo_flutterando2.png", width: 40),
-          ),
-          actions: const [
-            ChangeThemeButtonWidget(),
+            ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              CardActivity(
-                infoActivity: 'Semana 02 - Componentes do Flutter',
-                nameActivity: 'Componentes do Flutter',
-                contActivity: 4,
-              ),
-              CardActivity(
-                infoActivity: 'Primeira atividade da MasterClass',
-                nameActivity: 'Atividade 01',
-                contActivity: 4,
-              ),
-              CardActivity(
-                infoActivity: 'Primeira atividade da MasterClass',
-                nameActivity: 'Atividade 01',
-                contActivity: 4,
-              ),
-              CardActivity(
-                infoActivity: 'Primeira atividade da MasterClass',
-                nameActivity: 'Atividade 01',
-                contActivity: 4,
-              ),
-              CardActivity(
-                infoActivity: 'Primeira atividade da MasterClass',
-                nameActivity: 'Atividade 01',
-                contActivity: 4,
-              ),
-              CardActivity(
-                infoActivity: 'Primeira atividade da MasterClass',
-                nameActivity: 'Atividade 01',
-                contActivity: 4,
-              ),
-              SizedBox(height: 50),
-            ],
-          ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Image.asset("assets/logos/logo_flutterando2.png", width: 40),
         ),
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.transparent,
-          height: 45,
-          index: index,
-          items: items,
-        ));
+        actions: const [
+          ChangeThemeButtonWidget(),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [
+            CardActivity(
+              infoActivity: 'Semana 02 - Componentes do Flutter',
+              nameActivity: 'Componentes do Flutter',
+              contActivity: 4,
+              route: "/actives",
+            ),
+            SizedBox(height: 50),
+          ],
+        ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        color: Theme.of(context).bottomAppBarColor,
+        height: 45,
+        index: index,
+        items: items,
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.of(context).pushReplacementNamed("/");
+          }
+
+          if (index == 1) {
+            Navigator.of(context).pushReplacementNamed("/profilePage");
+          }
+
+          if (index == 2) {
+            Navigator.of(context).pushReplacementNamed("/repositoryPage");
+          }
+        },
+      ),
+    );
   }
 }
 
 class CardActivity extends StatelessWidget {
-  const CardActivity(
-      {Key? key,
-      required this.nameActivity,
-      required this.contActivity,
-      required this.infoActivity})
-      : super(key: key);
+  const CardActivity({
+    Key? key,
+    required this.nameActivity,
+    required this.contActivity,
+    required this.infoActivity,
+    required this.route,
+  }) : super(key: key);
   final String nameActivity;
   final int contActivity;
   final String infoActivity;
+  final String route;
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +183,9 @@ class CardActivity extends StatelessWidget {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed(route);
+                      },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(

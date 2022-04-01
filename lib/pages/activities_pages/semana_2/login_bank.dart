@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Exc01 extends StatelessWidget {
-  const Exc01({Key? key}) : super(key: key);
+class LoginBank extends StatelessWidget {
+  const LoginBank({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,9 @@ class Exc01 extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed("/");
+                },
                 child: const Text(
                   "Sing Up With Email ID",
                   style: TextStyle(fontSize: 20),
@@ -59,14 +61,19 @@ class Exc01 extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed("/");
+                },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 5),
-                      child: Image.asset("assets/icons/google.png", width: 25,),
+                      child: Image.asset(
+                        "assets/icons/google.png",
+                        width: 25,
+                      ),
                     ),
                     const Text(
                       "Sing Up With Google",

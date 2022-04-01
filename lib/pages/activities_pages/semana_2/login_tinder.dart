@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Exc02 extends StatelessWidget {
-  const Exc02({Key? key}) : super(key: key);
+class LoginTinder extends StatelessWidget {
+  const LoginTinder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -118,14 +118,17 @@ class Exc02 extends StatelessWidget {
               const Button(
                 text: "SING IN WITH APPLE",
                 image: "assets/icons/apple.png",
+                route: "/",
               ),
               const Button(
                 text: "SING IN WITH FACEBOOK",
                 image: "assets/icons/facebook_white.png",
+                route: "/",
               ),
               const Button(
                 text: "SING IN WITH PHONE NUMBER",
                 image: "assets/icons/chat.png",
+                route: "/",
               ),
               const SizedBox(height: 30),
               const Text(
@@ -144,10 +147,12 @@ class Exc02 extends StatelessWidget {
 }
 
 class Button extends StatelessWidget {
-  const Button({Key? key, required this.text, required this.image})
+  const Button(
+      {Key? key, required this.text, required this.image, required this.route})
       : super(key: key);
   final String text;
   final String image;
+  final String route;
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +176,9 @@ class Button extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed(route);
+          },
           child: Row(
             children: [
               Image.asset(
