@@ -72,6 +72,10 @@ flutter:
     - assets/logos/tinder.png
     - assets/logos/logo_flutterando.png
     - assets/logos/logo_flutterando2.png
+    - assets/icons_profile/facebook.svg
+    - assets/icons_profile/github.svg
+    - assets/icons_profile/instagram.svg
+    - assets/icons_profile/whatsapp.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

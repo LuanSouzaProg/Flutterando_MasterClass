@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             CardActivity(
               infoActivity: 'Semana 02 - Componentes do Flutter',
               nameActivity: 'Componentes do Flutter',
-              contActivity: 4,
+              contActivity: 2,
               route: "/actives",
             ),
             SizedBox(height: 50),
