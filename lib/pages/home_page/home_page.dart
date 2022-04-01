@@ -76,11 +76,11 @@ class _HomePageState extends State<HomePage> {
           }
 
           if (index == 1) {
-            Navigator.of(context).pushReplacementNamed("/profilePage");
+            Navigator.of(context).pushReplacementNamed("/repositoryPage");
           }
 
           if (index == 2) {
-            Navigator.of(context).pushReplacementNamed("/repositoryPage");
+            Navigator.of(context).pushReplacementNamed("/profilePage");
           }
         },
       ),

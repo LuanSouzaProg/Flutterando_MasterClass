@@ -9,7 +9,7 @@ class RepositoryPage extends StatefulWidget {
 }
 
 class _RepositoryPageState extends State<RepositoryPage> {
-  int index = 2;
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,14 @@ class _RepositoryPageState extends State<RepositoryPage> {
           }
 
           if (index == 1) {
-            Navigator.of(context).pushReplacementNamed("/profilePage");
+            Navigator.of(context).pushReplacementNamed("/repositoryPage");
           }
 
           if (index == 2) {
-            Navigator.of(context).pushReplacementNamed("/repositoryPage");
+            Navigator.of(context).pushReplacementNamed("/profilePage");
           }
+
+
         },
       ),
     );
