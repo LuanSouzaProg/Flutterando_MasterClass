@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       extendBody: true,
       appBar: AppBar(
         shadowColor: Colors.transparent,
+        elevation: 0,
         toolbarHeight: 80,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,13 +32,14 @@ class _HomePageState extends State<HomePage> {
             Text(
               "Atividades",
               style: TextStyle(
+                fontSize: 22,
                 color: Theme.of(context).bottomAppBarColor,
               ),
             ),
             Text(
               "Flutterando MasterClass",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 color: Theme.of(context).bottomAppBarColor,
               ),
             ),
