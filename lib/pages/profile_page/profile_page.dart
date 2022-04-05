@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:masterclass/widgets/change_theme_button_widget.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -53,13 +54,20 @@ class _ProfilePageState extends State<ProfilePage> {
           ChangeThemeButtonWidget(),
         ],
       ),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.95,
-          child: Column(
-            children: const [
-              CardDev(),
-            ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: Column(
+                children: const [
+                  CardDev(),
+                  Technologies(),
+                  Skills(),
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -110,7 +118,8 @@ class CardDev extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.transparent,
                   radius: 60,
-                  backgroundImage: AssetImage("assets/img_profile/foto_perfil.jpg"),
+                  backgroundImage:
+                      AssetImage("assets/img_profile/foto_perfil.jpg"),
                 ),
               ),
             ),
@@ -166,6 +175,176 @@ class CardDev extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Technologies extends StatelessWidget {
+  const Technologies({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Tecnologias Favoritas",
+            style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).bottomAppBarColor,
+                fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: SizedBox(
+              height: 110,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return const TechnologiesCard();
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TechnologiesCard extends StatelessWidget {
+  const TechnologiesCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(20),
+          ),
+        ),
+        width: 100,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Image.asset(
+                "assets/logos/logo_flutterando2.png",
+                width: 40,
+              ),
+            ),
+            const Text(
+              "Flutter",
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Skills extends StatelessWidget {
+  const Skills({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Text(
+              "Habilidades e Competências",
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).bottomAppBarColor,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.95,
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Skill(
+                    skillName: "Flutter",
+                    skillPercent: 0.80,
+                  ),
+                  Skill(
+                    skillName: "Dart",
+                    skillPercent: 0.75,
+                  ),
+                  Skill(
+                    skillName: "FireBase",
+                    skillPercent: 0.45,
+                  ),
+                  Skill(
+                    skillName: "API Rest",
+                    skillPercent: 0.40,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+}
+
+class Skill extends StatelessWidget {
+  const Skill({Key? key, required this.skillName, required this.skillPercent})
+      : super(key: key);
+  final String skillName;
+  final double skillPercent;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            skillName,
+            style: const TextStyle(
+              fontSize: 16,
+            ),
+          ),
+          LinearPercentIndicator(
+            width: MediaQuery.of(context).size.width * 0.60,
+            lineHeight: 10,
+            percent: skillPercent,
+            progressColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme.of(context).bottomAppBarColor,
+            barRadius: const Radius.circular(20),
+          ),
+        ],
       ),
     );
   }
