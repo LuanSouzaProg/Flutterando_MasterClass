@@ -79,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
         items: items,
         onTap: (index) {
           if (index == 0) {
-            Navigator.of(context).pushReplacementNamed("/");
+            Navigator.of(context).pushReplacementNamed("/homePage");
           }
 
           if (index == 1) {
@@ -337,6 +337,8 @@ class Skill extends StatelessWidget {
             ),
           ),
           LinearPercentIndicator(
+            animation: true,
+            animationDuration: 1000,
             width: MediaQuery.of(context).size.width * 0.60,
             lineHeight: 10,
             percent: skillPercent,

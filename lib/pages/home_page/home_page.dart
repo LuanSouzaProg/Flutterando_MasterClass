@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
         items: items,
         onTap: (index) {
           if (index == 0) {
-            Navigator.of(context).pushReplacementNamed("/");
+            Navigator.of(context).pushReplacementNamed("/homePage");
           }
 
           if (index == 1) {
